@@ -1,4 +1,4 @@
-package org.tutorial.produits.domain;
+package org.tutorial.commandes.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

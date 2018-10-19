@@ -1,20 +1,17 @@
-package org.tutorial.produits.domain;
+package org.tutorial.commandes.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-/**
- * Classe entity des produits
- */
 @Getter
 @Setter
 @AllArgsConstructor
-public final class Produit{
+public final class Commande {
 
     private Long id;
-    private String codeProduit;
+    private String codeCommande;
+    private String refProduit;
     private String libelleProduit;
-    private Double poids;
 
 }
