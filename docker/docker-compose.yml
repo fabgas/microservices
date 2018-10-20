@@ -1,0 +1,19 @@
+version: "3"
+
+services:
+  
+  serviceregistry:
+    image: tutorial/serviceregistry
+    ports:
+      - "8761:8761"
+  produits:
+    image: tutorial/produits  
+    links:
+      - serviceregistry
+  commandes:
+    image: tutorial/commandes
+    ports:
+      - "8300:8300"
+    links:
+      - serviceregistry
+      - produits
