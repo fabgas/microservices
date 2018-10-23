@@ -1,7 +1,14 @@
 version: "3"
 
 services:
-  
+  gateway:
+    image: tutorial/gateway
+    ports:
+      - "8000:8000"
+    links:
+      - serviceregistry
+      - commandes
+      - produits
   serviceregistry:
     image: tutorial/serviceregistry
     ports:
@@ -12,8 +19,6 @@ services:
       - serviceregistry
   commandes:
     image: tutorial/commandes
-    ports:
-      - "8300:8300"
     links:
       - serviceregistry
       - produits

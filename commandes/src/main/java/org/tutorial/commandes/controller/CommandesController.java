@@ -9,12 +9,13 @@ import org.tutorial.commandes.domain.Commande;
 import org.tutorial.commandes.services.CommandeService;
 
 @RestController
+@RequestMapping("/commandes")
 public final class CommandesController {
 
     @Autowired
     private  CommandeService commandeService;
 
-    @RequestMapping("/commandes")
+    @RequestMapping
     public List<Commande>  getCommandes() {
         return commandeService.getCommandes();
     }

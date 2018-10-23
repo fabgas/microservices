@@ -1,0 +1,21 @@
+server:
+  port: 8000
+zuul:
+  ignoredServices: '*'
+  prefix: /api
+  routes:
+    produits:
+      path: /produits/**
+      serviceId: produits
+      strip-prefix: true
+    commandes:
+      path: /commandes/**
+      serviceId: commandes
+      strip-prefix: false
+endpoints:
+  routes:
+    sensitive: false
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://serviceregistry:8761/eureka/
