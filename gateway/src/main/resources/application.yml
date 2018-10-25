@@ -12,6 +12,11 @@ zuul:
       path: /commandes/**
       serviceId: commandes
       strip-prefix: false
+    authService:
+      path: /auth/**
+      serviceId: authService
+      strip-prefix: false 
+      sensitive-headers: Cookie,Set-Cookie  
 endpoints:
   routes:
     sensitive: false
@@ -19,3 +24,4 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
+
