@@ -5,7 +5,7 @@ ENV MICROSERVICE_FILE target/gateway-0.0.1-SNAPSHOT.jar
 # Set the location of the verticles
 ENV MICROSERVICE_HOME /opt/verticles
 
-EXPOSE 8200
+EXPOSE 8000
 
 COPY $MICROSERVICE_FILE $MICROSERVICE_HOME/
 
