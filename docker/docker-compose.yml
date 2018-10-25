@@ -9,6 +9,11 @@ services:
       - serviceregistry
       - commandes
       - produits
+      - authentication
+  authentication:
+    image: tutorial/authentication
+    links:
+      - serviceregistry
   serviceregistry:
     image: tutorial/serviceregistry
     ports:

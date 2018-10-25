@@ -29,10 +29,7 @@ public final class JwtTokenAuthenticationFilter extends OncePerRequestFilter{
 				
         // 1. get the authentication header. Tokens are supposed to be passed in the authentication header
         String header = request.getHeader(jwtConfig.getHeader()); // utilisation de la constante
-		System.err.println("-------------------"+jwtConfig.getUri());
-		System.err.println("-------------------"+jwtConfig.getPrefix());
-		System.err.println("-------------------"+ jwtConfig.getHeader());
-        // 2. validate the header and check the prefix
+		// 2. validate the header and check the prefix
 		if(header == null || !header.startsWith(jwtConfig.getPrefix())) {
 			chain.doFilter(request, response);  		// If not valid, go to the next filter.
 			return;
@@ -43,7 +40,6 @@ public final class JwtTokenAuthenticationFilter extends OncePerRequestFilter{
 		
 		// All secured paths that needs a token are already defined and secured in config class.
 		// And If user tried to access without access token, then he won't be authenticated and an exception will be thrown.
-		System.err.println("-------------------"+jwtConfig.getPrefix());
 		// 3. Get the token
         String token = header.replace(jwtConfig.getPrefix(), ""); // Bearer
         try {	// exceptions might be thrown in creating the claims if for example the token is expired
