@@ -11,7 +11,7 @@ public final class JwtConfig {
     private String uri;
 
     /** default value : Authorization */
-    @Value("${security.jwt.header:Autorization}")
+    @Value("${security.jwt.header:Authorization}")
     private String header;
 
     // Default value Bearer
@@ -24,8 +24,5 @@ public final class JwtConfig {
         
     // default value JwtsecretKey
     @Value("${security.jwt.secret:JwtSecretKey}")
-    private String secret;
-
-
-    
+    private String secret;   
 }
