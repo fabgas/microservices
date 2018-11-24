@@ -1,5 +1,7 @@
 package org.tutorial.authentication.security;
 
+import java.util.Arrays;
+
 import javax.servlet.http.HttpServletResponse;
 
 
@@ -13,7 +15,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-
 @EnableWebSecurity
 public  class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter  {
 
@@ -26,7 +27,7 @@ public  class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter  {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
-		    .csrf().disable()
+		    .cors().and().csrf().disable()
 		     // make sure we use stateless session; session won't be used to store user's state.
 	            .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS)
 	        .and()
@@ -61,6 +62,8 @@ public  class SecurityCredentialsConfig extends WebSecurityConfigurerAdapter  {
 	
 	@Bean
 	public BCryptPasswordEncoder passwordEncoder() {
-	    return new BCryptPasswordEncoder();
+	   
+		return new BCryptPasswordEncoder();
 	}
+	
 }
